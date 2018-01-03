@@ -1,6 +1,36 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 class Header extends Component {
+  constructor() {
+    super();
+    this.state = {
+      active: 'debuts',
+      links: [{ name: 'debuts', title: 'Debuts' }, { name: 'animated', title: 'Animated' }, { name: 'playoffs', title: 'Playoffs' }]
+    };
+  }
+
+  renderLinks = () => {
+    console.log(this.state);
+    return this.state.links.map(({ name, title }) => {
+      return (
+        <li className={name === this.state.active ? 'active' : ''} key={name}>
+          <Link
+            to={'/shots?list=' + name}
+            onClick={() => {
+              this.setState({ active: name });
+              this.props.fetchShots(name);
+            }}
+          >
+            {title}
+          </Link>
+        </li>
+      );
+    });
+  };
+
   render() {
     return (
       <nav className="navbar navbar-inverse navbar-fixed-top">
@@ -12,26 +42,19 @@ class Header extends Component {
               <span className="icon-bar" />
               <span className="icon-bar" />
             </button>
-            <a className="navbar-brand" href="#">
+            <Link
+              to="/shots"
+              className="navbar-brand"
+              onClick={() => {
+                this.setState({ active: 'debut' });
+              }}
+            >
               ShotTest
-            </a>
+            </Link>
           </div>
 
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul className="nav navbar-nav">
-              <li className="active">
-                <a href="#">Popular</a>
-              </li>
-              <li>
-                <a href="#">Recent</a>
-              </li>
-              <li>
-                <a href="#">Debuts</a>
-              </li>
-              <li>
-                <a href="#">...</a>
-              </li>
-            </ul>
+            <ul className="nav navbar-nav">{this.renderLinks()}</ul>
           </div>
         </div>
       </nav>
@@ -39,4 +62,4 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export default connect(null, actions)(Header);
