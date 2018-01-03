@@ -28,6 +28,9 @@ class Header extends Component {
               <li>
                 <a href="#">Debuts</a>
               </li>
+              <li>
+                <a href="#">...</a>
+              </li>
             </ul>
           </div>
         </div>
