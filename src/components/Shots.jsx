@@ -10,7 +10,12 @@ class Shots extends Component {
       return (
         <div key={shot.id}>
           <Link to={'/shots/' + shot.id} className="thumbnail">
-            <img src={this.props.size === 'S' ? shot.images.teaser : shot.images.normal} style={{ maxWidth: 350 }} alt={shot.title} />
+            <img
+              src={this.props.size === 'S' ? shot.images.teaser : shot.images.normal}
+              style={this.props.size === 'S' ? { maxWidth: 140 } : { maxWidth: 320 }}
+              className="img-responsive"
+              alt={shot.title}
+            />
           </Link>
         </div>
       );

@@ -21,12 +21,12 @@ class Details extends Component {
                 </div>
                 <div className="media-body">
                   <h4 className="media-heading">{shot.title}</h4>
-                  by <a href={shot.user.name}>{shot.user.name}</a> on {shot.created_at}
+                  by <a href="#top">{shot.user.name}</a>
                 </div>
               </div>
             </div>
             <div className="col-md-2 text-right">
-              <Link to="/shots" className="btn btn-default">
+              <Link to="/shots" className="btn btn-xs btn-default">
                 Fechar
               </Link>
             </div>
@@ -34,8 +34,7 @@ class Details extends Component {
 
           <div className="row" style={{ marginTop: 20 }}>
             <div className="col-md-6">
-              <img src={shot.images.normal} alt="teste" />
-              <p dangerouslySetInnerHTML={{ __html: shot.description }} />
+              <img src={shot.images.normal} className="img-responsive" alt={shot.title} />
               <h4 className="details-tags">
                 {shot.tags.map(tag => {
                   return (
