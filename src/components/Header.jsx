@@ -48,7 +48,7 @@ class Header extends Component {
                 this.setState({ active: 'debut' });
               }}
             >
-              ShotTest
+              Shot Test
             </Link>
           </div>
 
