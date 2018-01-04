@@ -1,0 +1,41 @@
+.details-back {
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 50px;
+}
+
+.details-modal {
+  background-color: #fff;
+  border-radius: 5px;
+  max-width: 900px;
+  min-height: 300px;
+  margin: 0px auto;
+  padding: 30px;
+}
+
+.details-avatar {
+  max-width: 50px;
+}
+
+.details-tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.details-tags span {
+  margin: 2px;
+}
+
+.shots {
+  margin-top: 70px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.shots div {
+  margin: 5px;
+}

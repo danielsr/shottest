@@ -10,33 +10,14 @@ class Details extends Component {
       return shot.id === parseInt(this.props.match.params.id, 10);
     });
 
-    const backdropStyle = {
-      position: 'fixed',
-      top: 0,
-      bottom: 0,
-      left: 0,
-      right: 0,
-      backgroundColor: 'rgba(0,0,0,0.3)',
-      padding: 50
-    };
-
-    const modalStyle = {
-      backgroundColor: '#fff',
-      borderRadius: 5,
-      maxWidth: 900,
-      minHeight: 300,
-      margin: '0 auto',
-      padding: 30
-    };
-
     return (
-      <div style={backdropStyle}>
-        <div style={modalStyle}>
+      <div className="details-back">
+        <div className="details-modal">
           <div className="row">
             <div className="col-md-10">
               <div className="media">
                 <div className="media-left media-middle">
-                  <img className="media-object" src={shot.user.avatar_url} style={{ maxWidth: 50 }} alt={shot.title} />
+                  <img className="media-object details-avatar" src={shot.user.avatar_url} alt={shot.title} />
                 </div>
                 <div className="media-body">
                   <h4 className="media-heading">{shot.title}</h4>
@@ -55,10 +36,10 @@ class Details extends Component {
             <div className="col-md-6">
               <img src={shot.images.normal} alt="teste" />
               <p dangerouslySetInnerHTML={{ __html: shot.description }} />
-              <h4 style={{ display: 'flex', flexWrap: 'wrap' }}>
+              <h4 className="details-tags">
                 {shot.tags.map(tag => {
                   return (
-                    <span className="label label-default" style={{ margin: 2 }}>
+                    <span key={tag} className="label label-default">
                       {tag}
                     </span>
                   );

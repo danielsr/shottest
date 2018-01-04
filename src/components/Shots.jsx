@@ -8,9 +8,9 @@ class Shots extends Component {
 
     return this.props.shots.map(shot => {
       return (
-        <div className="col-xs-6 col-sm-4 col-md-3" key={shot.id}>
+        <div key={shot.id}>
           <Link to={'/shots/' + shot.id} className="thumbnail">
-            <img src={shot.images.teaser} alt={shot.title} />
+            <img src={this.props.size === 'S' ? shot.images.teaser : shot.images.normal} style={{ maxWidth: 350 }} alt={shot.title} />
           </Link>
         </div>
       );
@@ -20,9 +20,7 @@ class Shots extends Component {
   render() {
     return (
       <div>
-        <div className="container" style={{ marginTop: 70 }}>
-          <div className="row">{this.renderShots()}</div>
-        </div>
+        <div className="container shots">{this.renderShots()}</div>
       </div>
     );
   }

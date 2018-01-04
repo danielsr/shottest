@@ -13,7 +13,6 @@ class Header extends Component {
   }
 
   renderLinks = () => {
-    console.log(this.state);
     return this.state.links.map(({ name, title }) => {
       return (
         <li className={name === this.state.active ? 'active' : ''} key={name}>
@@ -36,7 +35,7 @@ class Header extends Component {
       <nav className="navbar navbar-inverse navbar-fixed-top">
         <div className="container">
           <div className="navbar-header">
-            <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" className="navbar-toggle collapsed">
               <span className="sr-only">Toggle navigation</span>
               <span className="icon-bar" />
               <span className="icon-bar" />
@@ -53,8 +52,30 @@ class Header extends Component {
             </Link>
           </div>
 
-          <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <div className="collapse navbar-collapse">
             <ul className="nav navbar-nav">{this.renderLinks()}</ul>
+            <ul className="nav navbar-nav navbar-right">
+              <li>
+                <a
+                  href="#top"
+                  onClick={() => {
+                    this.props.onResize('L');
+                  }}
+                >
+                  <span className="glyphicon glyphicon-th-large" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#top"
+                  onClick={() => {
+                    this.props.onResize('S');
+                  }}
+                >
+                  <span className="glyphicon glyphicon-th" />
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </nav>
