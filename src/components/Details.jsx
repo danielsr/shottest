@@ -14,7 +14,7 @@ class Details extends Component {
       <div className="details-back">
         <div className="details-modal">
           <div className="row">
-            <div className="col-md-10">
+            <div className="col-xs-12 col-sm-12 col-md-10">
               <div className="media">
                 <div className="media-left media-middle">
                   <img className="media-object details-avatar" src={shot.user.avatar_url} alt={shot.title} />
@@ -25,7 +25,7 @@ class Details extends Component {
                 </div>
               </div>
             </div>
-            <div className="col-md-2 text-right">
+            <div className="col-xs-12 col-sm-12 col-md-2 text-right">
               <Link to="/shots" className="btn btn-xs btn-default">
                 Fechar
               </Link>
@@ -33,7 +33,7 @@ class Details extends Component {
           </div>
 
           <div className="row" style={{ marginTop: 20 }}>
-            <div className="col-md-6">
+            <div className="col-xs-12 col-sm-12 col-md-6">
               <img src={shot.images.normal} className="img-responsive" alt={shot.title} />
               <h4 className="details-tags">
                 {shot.tags.map(tag => {
@@ -46,7 +46,7 @@ class Details extends Component {
               </h4>
             </div>
 
-            <div className="col-md-6">
+            <div className="col-xs-12 col-sm-12 col-md-6">
               <ul className="list-group">
                 <li className="list-group-item">
                   Views <span className="badge">{shot.views_count}</span>

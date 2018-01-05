@@ -6,6 +6,7 @@
   right: 0px;
   background-color: rgba(0, 0, 0, 0.3);
   padding: 50px;
+  z-index: 1050;
 }
 
 .details-modal {
@@ -13,8 +14,15 @@
   border-radius: 5px;
   max-width: 900px;
   min-height: 300px;
-  margin: 0px auto;
+  margin: -10px auto;
   padding: 30px;
+}
+
+@media all and (max-width: 500px) {
+  .details-modal {
+    margin: 5px;
+    padding: 10px;
+  }
 }
 
 .details-avatar {
